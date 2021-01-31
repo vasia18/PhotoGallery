@@ -26,10 +26,9 @@ public class PhotoGalleryFragment extends Fragment {
 	}
 
 
-	@Nullable
 	@Override
-	public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-							 @Nullable Bundle savedInstanceState) {
+	public View onCreateView( LayoutInflater inflater, ViewGroup container,
+							 Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.fragment_photo_gallery, container, false);
 
 		mPhotoRecyclerView = (RecyclerView) v.findViewById(R.id.Photo_recycler_view);
@@ -40,7 +39,7 @@ public class PhotoGalleryFragment extends Fragment {
 	}
 
 	@Override
-	public void onCreate(@Nullable Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setRetainInstance(true);
 		new FetchItemsTask().execute();
