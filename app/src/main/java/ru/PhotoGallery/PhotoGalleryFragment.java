@@ -1,17 +1,21 @@
 package ru.PhotoGallery;
 
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.IOException;
+
 
 public class PhotoGalleryFragment extends Fragment {
 
@@ -42,6 +46,8 @@ public class PhotoGalleryFragment extends Fragment {
 		setRetainInstance(true);
 		new FetchItemsTask().execute();
 	}
+	// TODO: 01.02.2021
+
 
 	private class FetchItemsTask extends AsyncTask<Void, Void, Void> {
 
@@ -58,4 +64,42 @@ public class PhotoGalleryFragment extends Fragment {
 			return null;
 		}
 	}
+
+	private class PhotoHolder extends RecyclerView.ViewHolder {
+		ImageView mItemImageView;
+
+		public PhotoHolder(@NonNull View itemView) {
+			super(itemView);
+
+			mItemImageView = (ImageView) itemView.findViewById(R.id.item_image_view);
+		}
+
+		public void bindDrawable(Drawable drawable) {
+			mItemImageView.setImageDrawable(drawable);
+		}
+	}
+
+
+	private class PhotoAdapter extends RecyclerView.Adapter<PhotoHolder> {
+
+
+		@NonNull
+		@Override
+		public PhotoHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+			return null;
+		}
+
+		@Override
+		public void onBindViewHolder(@NonNull PhotoHolder holder, int position) {
+
+		}
+
+		@Override
+		public int getItemCount() {
+			return 0;
+		}
+
+
+	}
+
 }
